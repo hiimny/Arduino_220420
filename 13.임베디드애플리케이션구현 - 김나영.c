@@ -2,15 +2,20 @@
 //
 
 // 전역변수 선언
-int PIN_LED = 7;
-int PIN_LED8 = 8;
+int PIN_LED1 = 5;
+int PIN_LED2 = 6;
+int PIN_LED3 = 7;
+int PIN_LED4 = 8;
 int PIN_TRIGER = 4;
 int PIN_ECHO = 3;
 
 
 void setup()
 {
-  pinMode(PIN_LED, OUTPUT);
+  pinMode(PIN_LED1, OUTPUT);
+  pinMode(PIN_LED2, OUTPUT);
+  pinMode(PIN_LED3, OUTPUT);
+  pinMode(PIN_LED4, OUTPUT);
   pinMode(PIN_TRIGER, OUTPUT);
   pinMode(PIN_ECHO, INPUT);
   
@@ -32,15 +37,31 @@ void loop()
   
   // Serial.println(cm);
   
-  if(cm > 100) {
-    digitalWrite(PIN_LED, LOW);
-    digitalWrite(PIN_LED8, LOW);
-  } else if(cm <= 100 && cm > 70) {
-    digitalWrite(PIN_LED8, HIGH);
-    digitalWrite(PIN_LED, LOW);
+  if(cm > 150) {
+    digitalWrite(PIN_LED1, LOW);
+    digitalWrite(PIN_LED2, LOW);
+    digitalWrite(PIN_LED3, LOW);
+    digitalWrite(PIN_LED4, LOW);
+  } else if(cm <= 150 && cm > 120) {
+    digitalWrite(PIN_LED1, LOW);
+    digitalWrite(PIN_LED2, LOW);
+    digitalWrite(PIN_LED3, LOW);
+    digitalWrite(PIN_LED4, HIGH);
+  } else if(cm <= 120 && cm > 90) {
+    digitalWrite(PIN_LED1, LOW);
+    digitalWrite(PIN_LED2, LOW);
+    digitalWrite(PIN_LED3, HIGH);
+    digitalWrite(PIN_LED4, HIGH);
+  } else if(cm <= 90 && cm > 70) {
+    digitalWrite(PIN_LED1, LOW);
+    digitalWrite(PIN_LED2, HIGH);
+    digitalWrite(PIN_LED3, HIGH);
+    digitalWrite(PIN_LED4, HIGH);
   } else {
-    digitalWrite(PIN_LED8, HIGH);
-    digitalWrite(PIN_LED, HIGH);
+    digitalWrite(PIN_LED1, HIGH);
+    digitalWrite(PIN_LED2, HIGH);
+    digitalWrite(PIN_LED3, HIGH);
+    digitalWrite(PIN_LED4, HIGH);
   }
   
   
